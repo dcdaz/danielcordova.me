@@ -1,0 +1,16 @@
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11.6.0/dist/mermaid.min.js"></script>
+<script src="{{ get_url(path="js/mermaid.js" ) }}"></script>
+
+<div class="content has-text-centered">
+    <pre class="mermaid" onclick="openModal(this)">
+        {{ body | safe }}
+    </pre>
+</div>
+
+<div id="mermaid-modal" class="modal">
+  <div class="modal-background"></div>
+  <div class="modal-content">
+    <figure id="mermaid-figure" class="image is-4by3"></figure>
+  </div>
+  <button id="mermaid-close" class="modal-close is-large" aria-label="close"></button>
+</div>

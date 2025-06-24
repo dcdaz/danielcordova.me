@@ -1,0 +1,44 @@
+#main {
+  min-height: calc(100vh - 180px);
+}
+
+.footer {
+  height: 150px;
+}
+
+[data-theme=light],
+.theme-light {
+  --bulma-body-background-color: #D8DEE9;
+  --bulma-scheme-main: #D8DEE9;
+  --bulma-border-weak: #D8DEE9;
+  --bulma-info: #5E81AC;
+  --bulma-link-text: #5376A2;
+  --bulma-scheme-h: 219;
+  --bulma-scheme-s: 28%;
+  --bulma-scheme-main-l: 88%;
+  --bulma-scheme-main-bis-l: 88%;
+  --bulma-background-l: 84%;
+  --bulma-hover-background-l-delta: -10%;
+  --bulma-focus-h: 210deg;
+  --bulma-focus-s: 28%;
+  --bulma-focus-l: 42%;
+}
+
+
+[data-theme=dark],
+.theme-dark {
+  --bulma-body-background-color: #434C5E;
+  --bulma-scheme-main: #434C5E;
+  --bulma-border-weak: #434C5E;
+  --bulma-info: #81A1C1;
+  --bulma-link-text: #7396BA;
+  --bulma-scheme-h: 220;
+  --bulma-scheme-s: 17%;
+  --bulma-scheme-main-l: 32%;
+  --bulma-scheme-main-bis-l: 32%;
+  --bulma-background-l: 28%;
+  --bulma-hover-background-l-delta: -10%;
+  --bulma-focus-h: 220deg;
+  --bulma-focus-s: 17%;
+  --bulma-focus-l: 42%;
+}

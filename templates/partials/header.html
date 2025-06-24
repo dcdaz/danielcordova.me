@@ -1,0 +1,45 @@
+<header class="block">
+    <nav class="navbar is-transparent" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="{{ config.base_url }}">
+                <span class="title">{{ config.title }}</span>
+            </a>
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="headerMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </a>
+        </div>
+        <div id="headerMenu" class="navbar-menu">
+            <div class="navbar-start">
+                <span class="navbar-item"></span>
+                <a class="navbar-item" href="{{ get_url(path='@/blog/_index.md') }}">blog</a>
+                <a class="navbar-item" href="{{ get_url(path='@/projects/_index.md') }}">projects</a>
+                <a class="navbar-item" href="{{ get_url(path='@/about.md') }}">about</a>
+                <span class="navbar-item">
+                    <div class="dropdown is-active">
+                        <input id="search-input" class="input is-small" type="text" placeholder="Type to search..." />
+                        <div class="dropdown-menu" id="dropdown-menu2" role="menu">
+                            <div id="search-results" class="dropdown-content is-hidden"></div>
+                        </div>
+                    </div>
+                </span>
+            </div>
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <div class="field is-grouped">
+                        <a id="theme-switcher" class="mdi mdi-theme-light-dark has-text-current"></a>
+                        {% set posts = get_section(path="blog/_index.md") %}
+                        {% if posts.pages | length > 0 %}
+                            <a class="mdi mdi-rss has-text-current" href="{{ config.base_url ~ '/blog/atom.xml' }}"></a>
+                        {% endif %}
+                        {% if config.extra.github_link %}
+                            <a class="mdi mdi-github has-text-current" href="{{ config.extra.github_link }}"></a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>

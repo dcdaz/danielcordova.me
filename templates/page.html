@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {{ macros::page_header(title=page.title) }}
+    <hr />
+    <div class="content">
+        {{ page.content | safe }}
+    </div>
+    <div class="content is-small">
+        <strong>Posted on:</strong> {{ page.date | date(format="%Y-%m-%d - %H:%M") }}
+        <br />
+        <strong>Modified on:</strong> {{ page.updated | date(format="%Y-%m-%d - %H:%M") }}
+        <br />
+        {{ macros::page_categories(categories=page.taxonomies.categories) }}
+        <br />
+        {{ macros::page_tags(tags=page.taxonomies.tags) }}
+    </div>
+{% endblock content %}

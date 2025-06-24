@@ -1,0 +1,75 @@
+<!-- Page header -->
+{% macro page_header(title, is_linkable=false) %}
+    <div class="columns">
+        <span class="column"></span>
+        <span class="column has-text-centered">
+            <h3 class="subtitle">
+                {% if is_linkable %}
+                    {% set link_path_list = title | split(pat=":") %}
+                    {% set link_path = link_path_list | first %}
+                    {% set link_term = link_path_list | last %}
+                    {% set taxonomy = get_taxonomy(kind=link_path | lower) %}
+                    <a href="{{ taxonomy.permalink }}">{{ link_path }}</a>{{ ": " ~ link_term}}
+                {% else %}
+                    {{ title }}
+                {% endif %}
+            </h3>
+        </span>
+        <span class="column"></span>
+    </div>
+{% endmacro content %}
+
+<!-- Taxonomies header -->
+ {% macro taxonomies_header(current_path, term_name="") %}
+    {% set entry_type = current_path | lower %}
+    {% set entry_title = "" %}
+    {% if entry_type is containing("tags") %} 
+        {% set entry_title = "Tags" %}
+    {% else %}
+        {% set entry_title = "Categories" %}
+    {% endif %}
+
+    {% if term_name %}
+        {% set entry_title = entry_title ~ ": " ~ term.name %}
+    {% else %}
+        {% set entry_title = entry_title %}
+    {% endif %}
+    {{ macros::page_header(title=entry_title, is_linkable= term_name | length > 0) }}
+ {% endmacro content %}
+
+<!-- Draw if has more -->
+{% macro draw_if_has_more(type, index, char) %}
+    {% if type | length > 1 %}
+        {% if index != type | length %}
+            {% if  char == "br" %}
+                <br />
+            {% elif char == "hr" %}
+                <hr />
+            {% else %}
+                {{ char }}
+            {% endif %}
+        {% endif %}
+    {% endif %}
+{% endmacro content %}
+
+<!-- Page categories -->
+{% macro page_categories(categories) %}
+    {% if categories %}
+        <strong>Categories: </strong>
+        {% for category in categories %}
+            <a href="{{ get_taxonomy_url(kind="categories", name=category) | safe }}">{{ category }}</a>
+            {{ macros::draw_if_has_more(type=categories, index=loop.index, char=",") }}
+        {% endfor %}
+    {% endif %}
+{% endmacro content %}
+
+<!-- Page tags -->
+{% macro page_tags(tags) %}
+    {% if tags %}
+        <strong>Tags: </strong>
+        {% for tag in tags %}
+            <a href="{{ get_taxonomy_url(kind="tags", name=tag) | safe }}">{{ tag }}</a>
+            {{ macros::draw_if_has_more(type=tags, index=loop.index, char=",") }}
+        {% endfor %}
+    {% endif %}
+{% endmacro content %}

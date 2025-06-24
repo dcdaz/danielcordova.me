@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="columns">
+        <div class="column is-two-thirds">
+            <!-- Recent Posts -->    
+            {% set recent_posts = get_section(path="blog/_index.md") %}
+            {% if recent_posts.pages | length > 0 %}
+                {{ macros::page_header(title="Recent Posts") }}
+                <div id="recent-posts" class="box content">
+                    {% for page in recent_posts.pages %}
+                    <article>
+                        <header>
+                            <h4 class="subtitle">
+                                <a class="tag is-medium" href="{{ page.permalink | safe }}">{{ page.title }}</a>
+                            </h4>
+                        </header>
+                        <div class="content is-small"> {{ page.content | striptags | truncate(length=100) | safe }}</div>
+                    </article>
+                    {% if loop.index >= config.extra.recent_size %}{% break %}{% endif %}
+                    {{ macros::draw_if_has_more(type=recent_posts.pages, index=loop.index, char="hr") }}
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+        <div class="column">
+            <!-- Latest Projects -->
+            {% set latest_projects = get_section(path="projects/_index.md") %}
+            {% if latest_projects.pages | length > 0 %}
+                {{ macros::page_header(title="Projects") }}
+                <div class="box content">
+                    {% for page in latest_projects.pages %}
+                        <article>
+                            <header>
+                                <h4 class="subtitle">
+                                    <a class="tag is-medium" href="{{ page.permalink | safe }}">{{ page.title }}</a>
+                                </h4>
+                            </header>
+                            <div class="content is-small"> {{ page.content | striptags | truncate(length=100) | safe }}</div>
+                        </article>
+                        {% if loop.index >= config.extra.recent_size %}{% break %}{% endif %}
+                        {{ macros::draw_if_has_more(type=latest_projects.pages, index=loop.index, char="hr") }}
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock content %}

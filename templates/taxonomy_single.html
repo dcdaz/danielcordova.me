@@ -1,0 +1,19 @@
+{% extends "index.html" %}
+
+{% block content %}
+    {% if term.name %}
+        {{ macros::taxonomies_header(current_path=current_path, term_name=term.name) }}
+    {% endif %}
+    
+    {% for page in term.pages %}
+        <article>
+            <header>
+                <h4 class="subtitle">
+                    <a class="tag is-medium" href="{{ page.permalink | safe }}">{{ page.title }}</a>
+                </h4>
+            </header>
+            <div class="content">{{ page.content | striptags | truncate(length=200) | safe }}</div>
+            {{ macros::draw_if_has_more(type=term.pages, index=loop.index, char="hr") }}
+        </article>
+    {% endfor %}
+{% endblock content %}

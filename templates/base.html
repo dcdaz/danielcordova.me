@@ -1,0 +1,29 @@
+{% import "macros.html" as macros %}
+
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{{ config.title }}</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css">
+        <link rel="stylesheet" href="{{ get_url(path='css/custom.css') | safe }}">
+        <script src="https://cdn.jsdelivr.net/npm/fuse.js@7.1.0/dist/fuse.min.js"></script>
+        <script type="text/javascript" src="{{ get_url(path='js/navbar.js') | safe }}"></script>
+        <script type="text/javascript" src="{{ get_url(path='js/search.js') | safe }}"></script>
+        <script type="text/javascript" src="{{ get_url(path='js/themeSwitcher.js') | safe }}"></script>
+    </head>
+
+    <body>
+        <div class="columns is-centered">
+            <div class="column is-half content">
+                {% include "partials/header.html" %}
+                <main id="main" class="container">
+                    {% block content %}{% endblock %}
+                </main>
+                {% include "partials/footer.html" %}
+            </div>
+        </div>
+    </body>
+</html>

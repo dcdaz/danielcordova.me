@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {{macros::page_header(title=page.title)}}
+    {% include "partials/embedable.html" %}
+{% endblock content %}

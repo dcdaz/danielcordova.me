@@ -1,0 +1,17 @@
+{%extends "base.html"%}
+
+{% block content %}
+    {{ macros::taxonomies_header(current_path=current_path) }}
+    <div class="content">
+        <ul>
+            {% for term in terms %}
+                <li>
+                    <a href="{{ term.permalink | safe }}">
+                        {{ term.name }} ({{ term.pages | length }} post{{ term.pages | length | pluralize }})
+                    </a>
+                </li>
+                {{ macros::draw_if_has_more(type=terms, index=loop.index, char="br") }}
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock content %}

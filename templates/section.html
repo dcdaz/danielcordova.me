@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {{ macros::page_header(title=section.title) }}
+    <div class="content">
+        {% set section_pages = paginator.pages | default(value=section.pages) %}
+        {% if section_pages | length > 0 %}
+            {% for page in section_pages %}
+                <article>
+                    <header>
+                        <h4 class="subtitle">
+                            <a class="tag is-large" href="{{ page.permalink | safe }}">{{ page.title }}</a>
+                        </h4>
+                    </header>
+                    <div class="content"> {{ page.content | striptags | truncate(length=200) | safe }}</div>
+                    <footer>
+                        <p class="content is-small">
+                            <strong>Posted on:</strong> {{ page.date | date(format="%Y-%m-%d %H:%M") }}
+                            &emsp;&emsp;{{ macros::page_categories(categories=page.taxonomies.categories) }}
+                            &emsp;&emsp;{{ macros::page_tags(tags=page.taxonomies.tags) }}
+                        </p>
+                    </footer>
+                    {{ macros::draw_if_has_more(type=section_pages, index=loop.index, char="hr") }}
+                </article>
+            {% endfor %}
+        {% else %}
+            {% set section_title = section.title | lower %}
+            {% if section_title is containing("blog") %}
+                There are no posts yet
+            {% else %}
+                There are no projects yet
+            {% endif %}
+        {% endif %}
+    </div>
+
+    {% if paginator %}
+        <nav class="pagination">
+            {% if paginator.previous %}
+                <a class="previous" href="{{ paginator.previous }}">‹ Previous</a>
+            {% endif %}
+            {% if paginator.next %}
+                <a class="next" href="{{ paginator.next }}">Next ›</a>
+            {% endif %}
+        </nav>
+    {% endif %}
+{% endblock content %}

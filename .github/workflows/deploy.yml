@@ -18,12 +18,12 @@ jobs:
         zola build -o public_html
 
     - name: Copy page contents via scp
-      uses: appleboy/scp-action@master
+      uses: appleboy/scp-action@v0.1.3
       env:
         HOST: ${{ secrets.HOST }}
         USERNAME: ${{ secrets.USERNAME }}
         PORT: ${{ secrets.PORT }}
         KEY: ${{ secrets.SSHKEY }}
       with:
-        source: "."
+        source: "public_html"
         target: ${{ secrets.PATH }}

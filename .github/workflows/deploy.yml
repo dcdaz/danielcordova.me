@@ -1,0 +1,29 @@
+name: Deploy
+
+on: 
+  push:
+    branches: [main]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Install Zola and build page
+      run: |
+        sudo snap install --edge zola
+        zola build
+
+    - name: Copy page contents via scp
+      uses: appleboy/scp-action@v1.0.0
+      env:
+        HOST: ${{ secrets.HOST }}
+        USERNAME: ${{ secrets.USERNAME }}
+        PORT: ${{ secrets.PORT }}
+        KEY: ${{ secrets.SSHKEY }}
+      with:
+        source: "public/*"
+        target: ${{ secrets.PATH }}

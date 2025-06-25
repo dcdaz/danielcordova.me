@@ -20,7 +20,7 @@ If you want to contact me you can send me an [e-mail](mailto:daniel.cordova@nano
 - Rust <progress class="progress is-small is-info" value="15" max="100">15%</progress>
 - Html <progress class="progress is-small is-info" value="15" max="100">15%</progress>
 - VueJS <progress class="progress is-small is-info" value="10" max="100">10%</progress>
-- C++ <progress class="progress is-small is-info" value="10" max="100">10%</progress>
+- C <progress class="progress is-small is-info" value="10" max="100">10%</progress>
 
 {% mermaid() %}
 ---

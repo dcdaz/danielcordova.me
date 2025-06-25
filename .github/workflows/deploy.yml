@@ -26,4 +26,4 @@ jobs:
         KEY: ${{ secrets.SSHKEY }}
       with:
         source: "./public_html"
-        target: ${{ secrets.PATH }}
+        target: "${{ secrets.PATH }}"

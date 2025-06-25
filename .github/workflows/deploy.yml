@@ -15,7 +15,7 @@ jobs:
     - name: Install Zola and build page
       run: |
         sudo snap install --edge zola
-        zola build
+        zola build -o public_html
 
     - name: Copy page contents via scp
       uses: appleboy/scp-action@v1.0.0
@@ -25,5 +25,5 @@ jobs:
         PORT: ${{ secrets.PORT }}
         KEY: ${{ secrets.SSHKEY }}
       with:
-        source: "public/*"
+        source: "public_html"
         target: ${{ secrets.PATH }}

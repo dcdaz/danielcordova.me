@@ -25,5 +25,5 @@ jobs:
         PORT: ${{ secrets.PORT }}
         KEY: ${{ secrets.SSHKEY }}
       with:
-        source: "./public_html"
-        target: "${{ secrets.PATH }}"
+        source: "."
+        target: ${{ secrets.PATH }}

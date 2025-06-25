@@ -18,7 +18,7 @@ jobs:
         zola build -o public_html
 
     - name: Copy page contents via scp
-      uses: appleboy/scp-action@v1.0.0
+      uses: appleboy/scp-action@master
       env:
         HOST: ${{ secrets.HOST }}
         USERNAME: ${{ secrets.USERNAME }}

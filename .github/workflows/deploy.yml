@@ -26,4 +26,5 @@ jobs:
         port: ${{ secrets.PORT }}
         source: "public_html"
         target: ${{ secrets.PATH }}
+        debug: true
         rm: true

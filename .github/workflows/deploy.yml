@@ -14,13 +14,11 @@ jobs:
 
     - name: Install Zola and build page
       run: |
-        sudo apt-get update
-        sudo apt-get install bash
         sudo snap install --edge zola
         zola build -o public_html
 
     - name: Copy page contents via scp
-      uses: appleboy/scp-action@v1.0.0
+      uses: appleboy/scp-action@v0.1.7
       with:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
@@ -28,5 +26,4 @@ jobs:
         port: ${{ secrets.PORT }}
         source: "public_html"
         target: ${{ secrets.PATH }}
-        debug: true
         rm: true

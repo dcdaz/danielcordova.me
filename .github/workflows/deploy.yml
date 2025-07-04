@@ -14,6 +14,8 @@ jobs:
 
     - name: Install Zola and build page
       run: |
+        sudo apt-get update
+        sudo apt-get install bash
         sudo snap install --edge zola
         zola build -o public_html
 

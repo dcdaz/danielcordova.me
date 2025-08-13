@@ -1,3 +1,7 @@
 {% set mdata = get_image_metadata(path=path) %}
-{% set image = resize_image(path=path, width=(mdata.width * scale)|int, op="fit_width") %}
-<img alt="{{ alt | safe }}" src="{{ image.url }}" />
+{% set image = resize_image(path=path, width=(mdata.width)|int, height=(mdata.height)|int, op="fit") %}
+<script src="{{ get_url(path="js/images.js" ) }}"></script>
+
+<div class="content has-text-centered">
+    <img alt="{{ alt | safe }}" src="{{ image.url }}" onclick="openImage(this)" />
+</div>

@@ -6,6 +6,21 @@
   height: 150px;
 }
 
+:root {
+  --bulma-info-h: 179deg;
+  --bulma-info-s: 25%;
+  --bulma-info-l: 65%;
+  --bulma-primary-h: 14deg;
+  --bulma-primary-s: 51%;
+  --bulma-primary-l: 63%;
+  --bulma-success-h: 92deg;
+  --bulma-success-s: 28%;
+  --bulma-success-l: 65%;
+  --bulma-warning-h: 354deg;
+  --bulma-warning-s: 42%;
+  --bulma-warning-l: 56%;
+}
+
 [data-theme=light],
 .theme-light {
   --bulma-body-background-color: #D8DEE9;

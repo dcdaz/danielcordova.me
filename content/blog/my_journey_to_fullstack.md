@@ -1,7 +1,7 @@
 ---
 title: "My Journey to Fullstack Dev"
 date: 2025-08-12
-updated: 2025-08-12
+updated: 2025-08-13
 slug: "fullstack-dev"
 authors: ["Daniel Cordova"]
 taxonomies:
@@ -34,9 +34,9 @@ The *main motivation* was to have a way to track series/animes/doramas chapters 
 
 My main skills are on top of JVM langs such as *Java and Kotlin*. So I have to say that my experience with *Frontend* technolgies was a startpage for my browser called [**Caratula**](https://github.com/dcdaz/caratula) wich was badly written in *VueJS*, and this static site. For *Backend* technologies apart from JVM ones I have some experience with *Rust, Python and a little bit of C++* and I have some love for those languages, so the choice was almost obvious to me, **No** JVM technologies.
 
-*C++* is great but I never did a *REST* Api with it and I didn't want to lose time learning a *C++ REST Framework* and remembering how to do things on that language. For *Rust and Python* I did some toy projects with *Flask, Django and Actix Web*, in fact the original *API* was written in *Python + Flask* around 7 years ago.
+**C++** is great but I never did a *REST* Api with it and I didn't want to lose time learning a *C++ REST Framework* and remembering how to do things on that language. For *Rust and Python* I did some toy projects with *Flask, Django and Actix Web*, in fact the original *API* was written in *Python + Flask* around 7 years ago.
 
-After some time thinking about *Python + Flask* or *Rust + Actix* for backend I decided to go with **Rust** considering that building the binary for a **ARM64 VPS** could be harder than deploying a *Python* app.
+After some time thinking about **Python + Flask** or **Rust + Actix** for backend I decided to go with **Rust** considering that building the binary for a **ARM64 VPS** could be harder than deploying a **Python** app.
 
 Then it comes the Frontend side, I never liked *React* but I had put it in the list of the possible technologies, so they were *VueJS, React and Svelte* as Frameworks and *Bulma, TailwindCSS* for *CSS*. Considering my previous "experience" with *VueJS* I decided to use it for my frontend along with *Bulma*
 
@@ -59,7 +59,7 @@ After work a few days on the backend and make a decent *API*, I started with fro
 
 #### The beginning
 
-As I said i had a teeny experience with Frontend, I wrote a few things on JS for this static site and the components for *Caratula* startpage, so the the frontend for my app started in the same way as *Caratula*. A sample of how i started
+As I said i had a teeny experience with Frontend, I wrote a few things on JS for this static site and the components for **Caratula** startpage, so the the frontend for my app started in the same way as **Caratula**. A sample of how i started
 
 ```js
 <script>
@@ -86,7 +86,7 @@ export default {
 </template>
 ```
 
-But something didn't feel completely right with how script section is written, it felt confusing and disconected. In any case i was working in the login page with this path until I saw a different way of write the script section i looked more coherent to me, so I started to use it and then things started to feel right.
+But something didn't feel completely right with how script section is written, it felt confusing and disconected. In any case i was working in the login page with this kind of code until I saw a different way of write the script section wich it looked more coherent to me, so I started to use it and then things started to feel right.
 
 ```js
 <script setup>
@@ -108,9 +108,9 @@ function log() {
 
 #### Reactivity and other Quirks
 
-Understand *ref and reactive* and how they can hold value from a html tag and/or update it was a challenge to me, because i couldn't connect the idea in my head. But once I understood it, evertyhing was way easier specially handle the data I got from *API* and show it on web browser.
+Understand *r*ef and reactive** and how they can hold value from a html tag and/or update it was a challenge to me, because i couldn't connect the idea in my head. But once I understood it, evertyhing was way easier specially handle the data I got from *API* and show it on web browser.
 
-*onMounted* was a super easy concept to understand what it does and how to use it. About *watch*, is something that I still need to review on documentation to not forget how it works. And one thing that troubles me a lot was to pass Global variables such as backend URL, at the begining I wrote them on the `main.js` file but lately I learned how `.env`, `.env.local` and `.env.production.local` works on *VueJS* and it was kinda a **Eureka** feeling. I used those files on other langs/projects such as *Python* but didn't know how they work with *VueJS*.
+**onMounted** was a super easy concept to understand what it does and how to use it. About **watch**, is something that I still need to review on documentation to not forget how it works. And one thing that troubles me a lot was to pass Global variables such as backend URL, at the begining I wrote them on the `main.js` file but lately I learned how `.env`, `.env.local` and `.env.production.local` works on *VueJS* and it was kinda a **Eureka** feeling. I used those files on other langs/projects such as *Python* but didn't know how they work with *VueJS*.
 
 ### Learning Vue Router
 
@@ -126,7 +126,7 @@ flowchart TD
 
 ### Learning Pinia Store
 
-I need it a way of dealing with credentials and didn't know how to use *localStorage* or any other storage on browser, so I looked on some places and It was obvious that hold credentials on *localStorage* wasn't the best idea. *VueJS* fellas recommended *Pinia*, so I started with a small tutorial, eveything worked flawlesly but I had this weird behavior when I hit `F5/Ctrl-R` keys and the session got lost, that thing drove me crazy for a couple of days until I understood that pinia didn't persit data on the store. Then using a plugin for persiting data on the store was super wasy and felt it natural.
+I need it a way of dealing with credentials and didn't know how to use **localStorage** or any other storage on browser, so I looked on some places and It was obvious that hold credentials on *localStorage* wasn't the best idea. *VueJS* fellas recommended **Pinia**, so I started with a small tutorial, eveything worked flawlesly but I had this weird behavior when I hit `F5/Ctrl-R` keys and the session got lost, that thing drove me crazy for a couple of days until I understood that pinia didn't persit data on the store. Then using a plugin for persiting data on the store was super wasy and felt it natural.
 
 ### Learning KY
 
@@ -134,13 +134,13 @@ This is a wonderfull library, I started to use with really simple calls, but rec
 
 ### Learning Typescript
 
-Javascript is kinda weird to me, it doesn't feel like I'm writing an entire application, it feels like I'm writing some scripts for specific things/actions. So I heard about the benefits of using Typescript and decided to convert my entire application from JS to TS. The transition was natural to me, having types for everything makes the code strong and easy to read. I can have classes and handle them as I use to in the backend. But most *important* now I feel like I'm writing an entire app and not a bunch of loose files that connects with **magic**. So Typescript was a great choice.
+Javascript is kinda weird to me, it doesn't feel like I'm writing an entire application, it feels like I'm writing some scripts for specific things/actions. So I heard about the benefits of using Typescript and decided to convert my entire application from JS to TS. The transition was natural to me, having types for everything makes the code strong and easy to read. I can have classes and handle them as I use to in the backend. But most **important** now I feel like I'm writing an entire app and not a bunch of loose files that connects with **magic**. So Typescript was a great choice.
 
 ### Project Organization
 
-When the app started to grow like dashboards, adding a new serie, edit a serie, change some color, search bar, etc. I saw the need of having a good organization of my files. Having all *Typescript* code on the same file as *"HTML"* didn't feel right, so I started to extract code, split responsibilites and move things where I think they belong. This organization is not something that I searched on the web but it's based on my backend experience. So I have a files and filders hierarchy like the following:
+When the app started to grow like dashboards, adding a new serie, edit a serie, change some color, search bar, etc. I saw the need of having a good organization of my files. Having all **Typescript** code on the same `.vue` file didn't feel right, so I started to **extract** code, **split** responsibilites and **move** things where I think they belong. This organization is not something that I searched on the web but it's based on my backend experience, so it could be **not** ideal but it works. I have a files and filders *hierarchy* like the following:
 
-|   Folder   |                       Purpose                                     |
+| **Folder** |                     **Purpose**                                   |
 | -----------| ----------------------------------------------------------------- |
 | components | All visual HTML components with small TS code                     |
 | services   | TS files where logic and magic happens                            |

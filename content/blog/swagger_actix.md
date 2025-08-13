@@ -5,8 +5,8 @@ updated: 2025-07-04
 slug: "swagger-actix-web"
 authors: ["Daniel Cordova"]
 taxonomies:
-    categories: ["REST"]
-    tags: ["REST", "Rust", "Swagger"]
+    categories: ["Dev"]
+    tags: ["Rust", "REST", "Swagger"]
 description: "How to add Swagger on a rest api built with Rust + Actix Web"
 ---
 

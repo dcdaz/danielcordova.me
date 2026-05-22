@@ -1,8 +1,7 @@
 <!-- Page header -->
 {% macro page_header(title, is_linkable=false) %}
     <div class="columns">
-        <span class="column"></span>
-        <span class="column has-text-centered">
+        <span class="column is-three-fifths is-offset-one-fifth has-text-centered">
             <h3 class="subtitle">
                 {% if is_linkable %}
                     {% set link_path_list = title | split(pat=":") %}
@@ -15,7 +14,6 @@
                 {% endif %}
             </h3>
         </span>
-        <span class="column"></span>
     </div>
 {% endmacro content %}
 

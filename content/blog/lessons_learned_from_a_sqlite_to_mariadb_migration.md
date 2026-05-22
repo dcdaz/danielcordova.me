@@ -1,7 +1,7 @@
 ---
 title: "Lessons learned from a SQLite to MariaDB migration"
-date: 2026-05-10
-updated: 2026-05-10
+date: 2026-05-21
+updated: 2026-05-21
 slug: "sqlite-to-mariadb-migration"
 authors: ["Daniel Cordova"]
 taxonomies:

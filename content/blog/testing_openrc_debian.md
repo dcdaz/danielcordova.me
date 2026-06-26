@@ -1,7 +1,7 @@
 ---
 title: "Replacing Systemd with OpenRC in Debian"
 date: 2026-06-24
-updated: 2026-06-24
+updated: 2026-06-25
 slug: "debian-openrc"
 authors: ["Daniel Cordova"]
 taxonomies:
@@ -10,7 +10,7 @@ taxonomies:
 description: "Thoughts on my testing process related to replacing Systemd with OpenRC"
 ---
 
-TL;DR
+## TL;DR
 
 I'm not a fan of **systemd** but I'm not against its use either. AKA if it works for you then it's ok.
 
@@ -104,7 +104,7 @@ Happy Hacking!!
 
 Some links if you're interested in **OpenRC** too
 
-- https://lecorbeausvault.wordpress.com/2022/02/07/debian-switching-init-system-easily-openrc-sysvinit-runit/
-- https://linux-digest.com/beyond-systemd-a-technical-deep-dive-into-openrc-for-modern-linux-systems
-- https://www.foxipex.com/2024/11/15/introduction-to-openrc-managing-services-with-ease/
-- https://members.loria.fr/EJeandel/posts/openrc/
+- [Debian: Switching Init System Easily (OpenRC, Sysvinit, Runit)](https://lecorbeausvault.wordpress.com/2022/02/07/debian-switching-init-system-easily-openrc-sysvinit-runit/)
+- [Beyond systemd: A Technical Deep Dive into OpenRC for Modern Linux Systems](https://linux-digest.com/beyond-systemd-a-technical-deep-dive-into-openrc-for-modern-linux-systems)
+- [Introduction to OpenRC: Managing Services with Ease](https://www.foxipex.com/2024/11/15/introduction-to-openrc-managing-services-with-ease/)
+- [OpenRC on debian](https://members.loria.fr/EJeandel/posts/openrc/)

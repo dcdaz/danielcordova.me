@@ -14,11 +14,11 @@ description: "Thoughts on my testing process related to replacing Systemd with O
 
 I'm not a fan of **systemd** but I'm not against its use either. AKA if it works for you then it's ok.
 
-*My case* though is more of a mix between **curiosity and discomfort**. *Curiosity* of how init systems works and *discomfort* of how *systemd* integrates things or new features.I'm aware that it works well for most of its use cases (I've been using it since its early days) and also I agree that *systemd* breaks all **KISS** philosphy principles, but other projects do it as well, right?.
+*My case* though is more of a mix between **curiosity and discomfort**. *Curiosity* of how init systems works and *discomfort* of how *systemd* integrates things or new features.I'm aware that it works well for most of its use cases (I've been using it since its early days) and also I agree that *systemd* breaks all **KISS** philosphy principles, but other projects do it as well, right?
 
 **So why the discomfort?**
 
-Well it began a while ago, when I was reading some news of how the project started to grab more and more responsibilities that belongs to other projects and how some **prod deployments** failed so bad because of a breaking change that could've been prevented if that responsibility wasn't part of *systemd*. Nothing too worrying for me, in any case the first real kick of discomfort came when [**age verification law**](https://github.com/BryanLunduke/DoesItAgeVerify) was cooking and my innocent thought was `Ok, Windows and Mac will integrate it, but Linux and other OpenSource OSs and projects will fight against this ridiculous law!!`.
+Well it began a while ago, when I was reading some news of how the project started to grab more and more responsibilities that belongs to other projects and how some **prod deployments** failed so bad because of a breaking change that could've been prevented if that responsibility wasn't part of *systemd*. Nothing too worrying for me though, in any case the first real kick of discomfort came when [**age verification law**](https://github.com/BryanLunduke/DoesItAgeVerify) was cooking and my innocent thought was `Ok, Windows and Mac will integrate it, but Linux and other OpenSource OSs and projects will "fight" against this ridiculous law!!`.
 
 Then my next thought was `Wait what?, the law is not even approved on some states/countries and systemd already integrated it, why?, what happened with the usual "fight" against non-sense laws?`.
 
@@ -57,9 +57,9 @@ sudo apt purge --allow-remove-essential systemd && sudo apt install openrc sysvi
 
 After installing *OpenRC* and uninstalling *systemd*, system didn't boot properly, so I had to go to **recovery mode** and hit **Ctrl-D** to allow me to fix the error.
 
-Issue itself was that while uninstalling *systemd* somehow how *OpenRC* was removed too or not installed at all. So I went to *recovery mode*, then I connected to my wifi network and installed *OpenRC* again with `apt install openrc sysvinit-core`.
+Issue itself was that while uninstalling *systemd* somehow *OpenRC* was removed too or not installed at all. So I went to *recovery mode*, then I connected to my wifi network and installed *OpenRC* again with `apt install openrc sysvinit-core`.
 
-So far so good. But neither **Battery Status nor Audio** worked. I knew that *battery status* was due to the [kernel's regression](https://lwn.net/ml/linux-kernel/20240115135249.296822-1-arnaud.pouliquen@foss.st.com/) I faced while installing **Debian Testing** on the laptop. Thus I converted my *systemd* service to a script and put it in `/etc/init.d/`, thus *OpenRC* can start it or enable it. It worked. I think audio need a different service related to pipewire and wireplumber. I'll test it later on.
+So far so good. But neither **Battery Status nor Audio** worked. I knew that *battery status* was due to the [kernel's regression](https://lwn.net/ml/linux-kernel/20240115135249.296822-1-arnaud.pouliquen@foss.st.com/) I faced while installing **Debian Testing** on the laptop. So I converted my *systemd* service to a script and put it in `/etc/init.d/`, thus *OpenRC* can start it or enable it. It worked. I think audio needs a different service related to pipewire and wireplumber, or to launch them on login. I'll test it later on.
 
 Systemd Service:
 ```bash

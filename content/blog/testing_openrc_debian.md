@@ -1,7 +1,7 @@
 ---
 title: "Replacing Systemd with OpenRC in Debian"
 date: 2026-06-24
-updated: 2026-06-25
+updated: 2026-06-28
 slug: "debian-openrc"
 authors: ["Daniel Cordova"]
 taxonomies:
@@ -59,7 +59,7 @@ After installing *OpenRC* and uninstalling *systemd*, system didn't boot properl
 
 Issue itself was that while uninstalling *systemd* somehow *OpenRC* was removed too or not installed at all. So I went to *recovery mode*, then I connected to my wifi network and installed *OpenRC* again with `apt install openrc sysvinit-core`.
 
-So far so good. But neither **Battery Status nor Audio** worked. I knew that *battery status* was due to the [kernel's regression](https://lwn.net/ml/linux-kernel/20240115135249.296822-1-arnaud.pouliquen@foss.st.com/) I faced while installing **Debian Testing** on the laptop. So I converted my *systemd* service to a script and put it in `/etc/init.d/`, thus *OpenRC* can start it or enable it. It worked. I think audio needs a different service related to pipewire and wireplumber, or to launch them on login. I'll test it later on.
+So far so good. But neither **Battery Status nor Audio** worked. I knew that *battery status* was due to the [kernel's regression](https://lwn.net/ml/linux-kernel/20240115135249.296822-1-arnaud.pouliquen@foss.st.com/) I faced while installing **Debian Testing** on the laptop. So I converted my *systemd* service to a script and put it in `/etc/init.d/`, thus *OpenRC* can start it or enable it. It worked. I think audio needs a different service related to pipewire and wireplumber, or to launch them on login. I'll test them later on.
 
 Systemd Service:
 ```bash
@@ -92,11 +92,11 @@ echo start > /sys/class/remoteproc/remoteproc2/state;
 
 Currently **OpenRC** does the work. I'm not sure if it'll be my default **Init system** for the comming ages, but I feel that my experiment was successful.
 
-I'll continue testing **OpenRC** on my *"Home Hacking* **Thinkpad**_"_ for the next days, maybe weeks, and if I feel comfortable enough I'll migrate my work **Thinkpad** (which runs Debian Testing too and has the same dotfiles in it) to **OpenRC** as well.
+I'll continue testing **OpenRC** on my *"Home Hacking Laptop"* for the next days, maybe weeks, and if I feel comfortable enough I'll migrate my work laptop (which runs Debian Testing too and has the same dotfiles in it) to **OpenRC** as well.
 
 Even though changing *Init System* on a working **Linux** installation has its quirks and challenges and might not be the best idea, I'm happy with my current results.
 
-If this works for you too, then I'll be happier to know that you're ditching *systemd* in favor of *OpenRC* as well, aside from jokes, in the end that's part of the unix philosophy **to use whatever you want and whatever works for you.**
+If this works for you too, then I'll be happier to know that you're ditching *systemd* in favor of *OpenRC* as well, *aside from jokes*, in the end that's part of the unix freedom **to use whatever you want and whatever works for you.**
 
 Happy Hacking!!
 

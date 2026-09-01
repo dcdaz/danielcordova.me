@@ -2,7 +2,7 @@
 
 {% block content %}
     <div class="columns is-centered">
-        <div class="column is-three-quarters-fullhd">
+        <div aria-labelledby="recent-posts" class="column is-three-quarters-fullhd">
             <!-- Recent Posts -->    
             {% set recent_posts = get_section(path="blog/_index.md") %}
             {% if recent_posts.pages | length > 0 %}
@@ -11,8 +11,8 @@
                     {% for page in recent_posts.pages %}
                     <article>
                         <header>
-                            <button class="button is-hovered">
-                                <strong><a class="has-text-grey-dark" style="text-wrap: balance;" href="{{ page.permalink | safe }}">{{ page.title }}</a></strong>
+                            <button type="button" class="button is-hovered" onclick="window.location.href='{{ page.permalink | safe }}'">
+                                <strong>{{ page.title }}</strong>
                             </button>
                         </header>
                         <br />
@@ -26,12 +26,12 @@
         </div>
     </div>
     <div class="columns is-centered">
-        <div class="column is-three-quarters-fullhd is-four-fifths">
+        <div aria-labelledby="projects" class="column is-three-quarters-fullhd is-four-fifths">
             <!-- Latest Projects -->
             {% set latest_projects = get_section(path="projects/_index.md") %}
             {% if latest_projects.pages | length > 0 %}
                 {{ macros::page_header(title="Projects") }}
-                <div class="box content">
+                <div id="projects" class="box content">
                     {% for page in latest_projects.pages %}
                         <article>
                             <header>

@@ -1,14 +1,16 @@
 {% extends "base.html" %}
 
 {% block content %}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="{{ page.description | default(value=config.description) }}">
     {{ macros::page_header(title=page.title) }}
     <hr />
     <div class="content is-small">
         <div class="columns is-centered has-text-centered">
             <div class="column is-half">
-                <strong>Posted on:</strong> {{ page.date | date(format="%Y-%m-%d") }}
+                <strong>Posted on:</strong><time datetime="{{ page.date }}"> {{ page.date | date(format="%B %-d, %Y") }}</time>
                 <br />
-                <strong>Modified on:</strong> {{ page.updated | date(format="%Y-%m-%d") }}
+                <strong>Modified on:</strong><time datetime="{{ page.updated }}"> {{ page.updated | date(format="%B %-d, %Y") }}</time>
             </div>
             <div class="column is-half">
                 {{ macros::page_categories(categories=page.taxonomies.categories) }}

@@ -6,6 +6,12 @@
   height: 150px;
 }
 
+pre {
+  max-width: 100%;
+  overflow-x: auto;
+  white-space: pre;
+}
+
 :root {
   --bulma-info-h: 179deg;
   --bulma-info-s: 25%;

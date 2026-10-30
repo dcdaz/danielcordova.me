@@ -1,7 +1,7 @@
 ---
 title: "Replacing Systemd with OpenRC in Debian"
 date: 2026-06-24
-updated: 2026-06-28
+updated: 2026-10-30
 slug: "debian-openrc"
 authors: ["Daniel Cordova"]
 taxonomies:
@@ -87,6 +87,56 @@ echo start > /sys/class/remoteproc/remoteproc1/state;
 echo start > /sys/class/remoteproc/remoteproc2/state;
 ```
 > I need to convert it into a proper **OpenRC** script
+
+---
+#### Update
+
+**OpenRC** script is like the following:
+
+```bash
+#!/sbin/openrc-run
+
+name="Thinkpad X13s Remoteprocs"
+description="Fixes an issue with remoteprocs therefore sound and batt status"
+
+firmware="/lib/firmware/qcom/sc8280xp/LENOVO/21BX/qcslpi8280.mbn"
+
+depend() {
+    after local
+}
+
+start() {
+    ebegin "Waiting for firmware ${name}"
+    while [ ! -f "$firmware" ]; do
+        sleep 0.1
+    done
+    eend 0 || return 1
+
+    ebegin "Starting ${name}"
+    if ! echo start > /sys/class/remoteproc/remoteproc0/state ||
+       ! echo start > /sys/class/remoteproc/remoteproc1/state ||
+       ! echo start > /sys/class/remoteproc/remoteproc2/state; then
+        eend 1 "Failed to start ${name}"
+        return 1
+    fi
+    eend 0
+}
+
+stop() {
+    ebegin "Stopping ${name}"
+    eend 0
+}
+```
+
+It should be placed on `/etc/init.d/x13s-remoteproces`
+
+To enable it properly it needs to be part of *sysinit* rather than *default* level. Ad it can be done by adding the service with the following command
+
+```bash
+sudo rc-update add x13s-remoteprocs sysinit
+```
+
+---
 
 ## Future
 
